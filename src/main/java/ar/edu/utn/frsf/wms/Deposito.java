@@ -2,6 +2,7 @@ package ar.edu.utn.frsf.wms;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Deposito simple: permite recibir mercaderia de proveedores,
