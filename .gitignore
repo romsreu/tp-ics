@@ -1,0 +1,18 @@
+# Salida de compilacion de Maven
+target/
+
+# Configuraciones locales de IDEs
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Logs y variables de entorno locales
+*.log
+.env
