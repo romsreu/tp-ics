@@ -11,7 +11,7 @@ public class Deposito {
 
     private final String nombre;
     private final Map<String, Integer> stock = new HashMap<>();
-    private final Map<String, Producto> productos = new HashMap<>();
+    private final Map<String, Producto> productos = new TreeMap<>();
 
     public Deposito(String nombre) {
         this.nombre = nombre;
