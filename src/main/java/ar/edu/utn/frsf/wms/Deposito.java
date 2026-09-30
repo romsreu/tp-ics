@@ -34,6 +34,9 @@ public class Deposito {
         if (cantidad <= 0) {
             throw new IllegalArgumentException("La cantidad debe ser mayor a cero");
         }
+        if (!productos.containsKey(sku)) {
+            throw new IllegalArgumentException("Producto inexistente: " + sku);
+        }
         int disponible = getStock(sku);
         if (disponible < cantidad) {
             throw new IllegalStateException(

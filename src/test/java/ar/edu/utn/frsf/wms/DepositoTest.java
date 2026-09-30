@@ -38,6 +38,11 @@ class DepositoTest {
     }
 
     @Test
+    void despacharProductoInexistenteFalla() {
+        assertThrows(IllegalArgumentException.class, () -> deposito.despachar("SKU-999", 1));
+    }
+
+    @Test
     void recibirCantidadInvalidaFalla() {
         assertThrows(IllegalArgumentException.class, () -> deposito.recibir(producto, 0));
     }
