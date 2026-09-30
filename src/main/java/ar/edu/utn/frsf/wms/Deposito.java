@@ -59,9 +59,14 @@ public class Deposito {
         return stock.getOrDefault(sku, 0);
     }
 
+    public int getTotalUnidades() {
+        return stock.values().stream().mapToInt(Integer::intValue).sum();
+    }
+
     public void imprimirInventario() {
         System.out.println("Inventario del deposito " + nombre + ":");
         productos.values().forEach(p ->
                 System.out.println("  " + p + " -> " + getStock(p.getSku()) + " unidades"));
+        System.out.println("Total: " + getTotalUnidades() + " unidades");
     }
 }
