@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 /**
  * Deposito simple: permite recibir mercaderia de proveedores,
- * despachar pedidos y consultar el stock de cada producto.
+ * despachar pedidos, registrar devoluciones y consultar el stock de cada producto.
  */
 public class Deposito {
 
@@ -43,6 +43,16 @@ public class Deposito {
                     "Stock insuficiente para " + sku + ": disponible " + disponible + ", pedido " + cantidad);
         }
         stock.put(sku, disponible - cantidad);
+    }
+
+    public void registrarDevolucion(String sku, int cantidad) {
+        if (cantidad <= 0) {
+            throw new IllegalArgumentException("La cantidad debe ser mayor a cero");
+        }
+        if (!productos.containsKey(sku)) {
+            throw new IllegalArgumentException("Producto inexistente: " + sku);
+        }
+        stock.merge(sku, cantidad, Integer::sum);
     }
 
     public int getStock(String sku) {
