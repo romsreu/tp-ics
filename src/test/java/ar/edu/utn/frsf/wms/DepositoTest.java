@@ -43,6 +43,19 @@ class DepositoTest {
     }
 
     @Test
+    void devolucionAumentaElStock() {
+        deposito.recibir(producto, 100);
+        deposito.despachar("SKU-001", 30);
+        deposito.registrarDevolucion("SKU-001", 5);
+        assertEquals(75, deposito.getStock("SKU-001"));
+    }
+
+    @Test
+    void devolucionDeProductoInexistenteFalla() {
+        assertThrows(IllegalArgumentException.class, () -> deposito.registrarDevolucion("SKU-999", 1));
+    }
+
+    @Test
     void recibirCantidadInvalidaFalla() {
         assertThrows(IllegalArgumentException.class, () -> deposito.recibir(producto, 0));
     }
